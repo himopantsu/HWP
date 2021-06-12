@@ -78,6 +78,6 @@ async def on_message(message):
 		
 	elif message.content == "!ダンス寿司":
 		vc = await channel.connect()
-		vc.play(discord.FFmpegPCMAudio('dancesushi.mp3')
+		vc.play(discord.FFmpegPCMAudio('dancesushi.mp3'))
 
 client.run(bot_token)
