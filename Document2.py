@@ -80,6 +80,6 @@ async def on_message(message):
 		voice_state = message.author.voice
 		channel = voice_state.channel
 		vc = await channel.connect()
-		await vc.play(discord.FFmpegPCMAudio('dancesushi.mp3'))
+		vc.play(discord.FFmpegPCMAudio('dancesushi.mp3'))
 
 client.run(bot_token)
