@@ -12,4 +12,3 @@ matplotlib
 opencv-python
 Pillow
 PyNaCl
-ctypes
