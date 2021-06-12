@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 from datetime import timedelta
 import io
+import time
 from PIL import Image
 
 bot_token = os.environ['DISCORD_BOT_TOKEN']
@@ -82,6 +83,7 @@ async def on_message(message):
 			return
 		await message.author.voice.channel.connect()
 		message.guild.voice_client.play(discord.FFmpegPCMAudio("dancesushi.mp3"))
-		message.guild.voice_client.disconnect()
+		time.sleep(94)
+		await message.guild.voice_client.disconnect()
 
 client.run(bot_token)
