@@ -20,36 +20,6 @@ from PIL import Image
 bot_token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()  # 接続に使用するオブジェクト
 
-def uranai(url):
-	html = urllib.request.urlopen(url)
-	soup = BeautifulSoup(html)
-	df2 = pd.DataFrame(soup.find_all("a"))
-	bbbb = str(df2[0][17])
-	bbb = bbbb.split("「")
-	bbb = bbb[1].split("」")
-	bbb = bbb[0]
-
-	df = pd.DataFrame(soup.find_all("td"))
-	test = str(df[0][1])
-	n = test.split("=")
-
-	df4 = pd.DataFrame(soup.find_all("p"))
-	test2 = str(df4[0][4])
-	mm = test2.split("=")
-	mmm = mm[0].split(">")[1].split("<")[0].split("。")
-
-	ccc = str(soup.find_all("meta")[7]).split("=")
-	ddd = ccc[1][1:-10]
-	
-	list = []
-	list.append(n[3].split(" ")[0][1:-1])
-	list.append(n[6].split(" ")[0][1:-1])
-	list.append(n[9].split(" ")[0][1:-1])
-	list.append(n[12].split(" ")[0][1:-1])
-	list.append(bbb)
-	return list,ddd
-
-
 @client.event
 async def on_ready():
 	"""起動時に通知してくれる処理"""
@@ -79,11 +49,6 @@ async def on_message(message):
 		input_array = np.asarray(grayimg)
 		custom_cascade = cv2.CascadeClassifier('cascade.xml')
 		custom_rect = custom_cascade.detectMultiScale(grayimg, scaleFactor=1.07, minNeighbors=2, minSize=(1, 1))
-		
-		
-		#match_result = cv2.matchTemplate(input_array,validation_array,cv2.TM_CCOEFF_NORMED)
-		#threshold = 0.5
-		#loc=np.where(match_result >= threshold)
 		
 		if len(custom_rect) == 0:
 			return
@@ -130,161 +95,10 @@ async def on_message(message):
 		# ダイレクトメッセージ送信
 		dm = await message.author.create_dm()
 		await dm.send(f"{message.author.mention}さんにダイレクトメッセージ")
-
-	elif message.content == "!おひつじ座":
-		url = "https://fortune.yahoo.co.jp/12astro/aries"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!おうし座":
-		url = "https://fortune.yahoo.co.jp/12astro/taurus"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!ふたご座":
-		url = "https://fortune.yahoo.co.jp/12astro/gemini"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!かに座":
-		url = "https://fortune.yahoo.co.jp/12astro/cancer"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!しし座":
-		url = "https://fortune.yahoo.co.jp/12astro/leo"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!おとめ座":
-		url = "https://fortune.yahoo.co.jp/12astro/virgo"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!てんびん座":
-		url = "https://fortune.yahoo.co.jp/12astro/libra"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!さそり座":
-		url = "https://fortune.yahoo.co.jp/12astro/scorpio"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!いて座":
-		url = "https://fortune.yahoo.co.jp/12astro/sagittarius"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!やぎ座":
-		url = "https://fortune.yahoo.co.jp/12astro/capricorn"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!みずがめ座":
-		url = "https://fortune.yahoo.co.jp/12astro/aquarius"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
-	elif message.content == "!うお座":
-		url = "https://fortune.yahoo.co.jp/12astro/pisces"
-		kekka,ddd = uranai(url)
-		embed = discord.Embed(title="星座占い", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
-		embed.set_thumbnail(url=message.author.avatar_url)
-		embed.add_field(name="総合運",value=kekka[0],inline=False)
-		embed.add_field(name="恋愛運",value=kekka[1],inline=False)
-		embed.add_field(name="金運",value=kekka[2],inline=False)
-		embed.add_field(name="仕事運",value=kekka[3],inline=False)
-		embed.add_field(name="コメント",value=kekka[4],inline=False)
-		embed.add_field(name="====",value=ddd,inline=False)
-		await message.channel.send(embed=embed)
-
+		
+	elif message.content == "!ダンス寿司":
+		voice = await client.join_voice_channel(client.get_channel(member.voice.channel))
+        	player = voice.create_ffmpeg_player('dancesushi.mp3')
+        	player.start()
+		
 client.run(bot_token)
