@@ -20,7 +20,7 @@ bot_token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()  # 接続に使用するオブジェクト
 
 if not discord.opus.is_loaded():
-	discord.opus.load_opus("heroku-buildpack-libopus")
+	discord.opus.load_opus()
 
 @client.event
 async def on_ready():
