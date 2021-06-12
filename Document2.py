@@ -80,5 +80,5 @@ async def on_message(message):
 		voice = await client.join_voice_channel(client.get_channel(member.voice.channel))
 		player = voice.create_ffmpeg_player('dancesushi.mp3')
 		player.start()
-		
+
 client.run(bot_token)
