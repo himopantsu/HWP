@@ -19,18 +19,6 @@ from PIL import Image
 bot_token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()  # 接続に使用するオブジェクト
 
-import ctypes
-import ctypes.util
-print("ctypes -Find opus:")
-a= ctypes.util.find_library('opus')
-print(a)
-print("Discord -Load Opus:")
-b= discord.opus.load_opus(a)
-print(b)
-print("Discord -Is loaded:")
-c= discord.opus.is_loaded()
-print(c)
-
 @client.event
 async def on_ready():
 	"""起動時に通知してくれる処理"""
