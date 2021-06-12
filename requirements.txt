@@ -11,3 +11,4 @@ BeautifulSoup4
 matplotlib
 opencv-python
 Pillow
+PyNaCl
