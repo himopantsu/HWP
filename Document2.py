@@ -19,9 +19,6 @@ from PIL import Image
 bot_token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()  # 接続に使用するオブジェクト
 
-if not discord.opus.is_loaded(): 
-	discord.opus.load_opus("heroku-buildpack-libopus")
-	
 @client.event
 async def on_ready():
 	"""起動時に通知してくれる処理"""
@@ -80,9 +77,10 @@ async def on_message(message):
 		await dm.send(f"{message.author.mention}さんにダイレクトメッセージ")
 		
 	elif message.content == "!ダンス寿司":
-		voice_state = message.author.voice
-		channel = voice_state.channel
-		vc = await channel.connect()
-		vc.play(discord.FFmpegPCMAudio('dancesushi.mp3'))
+		if message.author.voice is None:
+			await message.channel.send("ボイスチャンネルに接続してね")
+			return
+		await message.author.voice.channel.connect()
+		message.guild.voice_client.play(discord.FFmpegPCMAudio("dancesushi.mp3"))
 
 client.run(bot_token)
