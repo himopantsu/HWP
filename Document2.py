@@ -82,7 +82,8 @@ async def on_message(message):
 			await message.channel.send("ボイスチャンネルに接続してね")
 			return
 		await message.author.voice.channel.connect()
-		message.guild.voice_client.play(discord.FFmpegPCMAudio("dancesushi.mp3"),after=lambda e: await message.channel.send("終わったよ"))
+		message.guild.voice_client.play(discord.FFmpegPCMAudio("dancesushi.mp3"),after=lambda e: print("done",e)
+		await message.channel.send("おわったよ")
 		await message.guild.voice_client.disconnect()
 
 client.run(bot_token)
