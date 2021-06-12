@@ -77,8 +77,7 @@ async def on_message(message):
 		await dm.send(f"{message.author.mention}さんにダイレクトメッセージ")
 		
 	elif message.content == "!ダンス寿司":
-		voice = await client.join_voice_channel(client.get_channel(member.voice.channel))
-		player = voice.create_ffmpeg_player('dancesushi.mp3')
-		player.start()
+		vc = await channel.connect()
+		vc.play(discord.FFmpegPCMAudio('dancesushi.mp3')
 
 client.run(bot_token)
