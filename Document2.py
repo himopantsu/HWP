@@ -83,7 +83,8 @@ async def on_message(message):
 			return
 		await message.author.voice.channel.connect()
 		message.guild.voice_client.play(discord.FFmpegPCMAudio("dancesushi.mp3"))
-		time.sleep(120)
+		while message.guild.voice_client.is_connected() == TRUE:
+			time.sleep(5)
 		await message.guild.voice_client.disconnect()
 		
 client.run(bot_token)
