@@ -85,6 +85,8 @@ async def on_message(message):
 		message.guild.voice_client.play(discord.FFmpegPCMAudio("dancesushi.mp3"))
 		while message.guild.voice_client.is_connected() == True:
 			time.sleep(5)
+		await message.channel.send("終わったよ")
+		await message.channel.send("じょあの")
 		await message.guild.voice_client.disconnect()
 		
 client.run(bot_token)
