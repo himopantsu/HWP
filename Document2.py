@@ -34,15 +34,21 @@ async def on_message(message):
 	"""メッセージを処理"""
 	if message.author.bot:  # ボットのメッセージをハネる
 		return
+	
 	elif message.content.startswith("/dice"):
 		bun = message.content
-		if bun[bun.find(" ")+1:bun.rfind(" ")] < bun[bun.rfind(" ")+1:]:
-			await message.channel.send(f'{bun[bun.find(" ")+1:bun.rfind(" ")]}より{bun[bun.rfind(" ")+1:]のほうが小さいよ')
+		syou = int(bun[bun.find(" ")+1:bun.rfind(" ")])
+		dai = int(bun[bun.rfind(" ")+1:])
+		if syou > dai:
+    			await message.channel.send(f'{syou}より{dai}のほうが小さいよ")
 			await message.channel.send(f'/dice 小さい数字 大きい数字 の順番で指定してね')
 			return
+		elif syou == dai:
+    			await message.channel.send(f'{syou}')
+			return
 		else:
-    			await message.channel.send(f'ぽん！**{np.random.randint(bun[bun.find(" ")+1:bun.rfind(" ")],bun[bun.rfind(" ")+1:])}**')
-		
+    			await message.channel.send(f'ぽん！**{np.random.randint(syou,dai))}**')
+			return
 		
 	elif message.content == "('o')ｷｬｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww":
 		await message.channel.send(f"うるせえぞタピオカ")
