@@ -47,7 +47,7 @@ async def on_message(message):
 			await message.channel.send(f'{syou}')
 			return
 		else:
-			await message.channel.send(f'ぽん！**{np.random.randint(syou,dai))}**')
+			await message.channel.send(f'ぽん！**{np.random.randint(syou,dai)}**')
 			return
 		
 	elif message.content == "('o')ｷｬｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww":
