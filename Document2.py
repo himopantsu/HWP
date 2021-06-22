@@ -39,15 +39,15 @@ async def on_message(message):
 		bun = message.content
 		syou = int(bun[bun.find(" ")+1:bun.rfind(" ")])
 		dai = int(bun[bun.rfind(" ")+1:])
-		if syou > dai:
-    			await message.channel.send(f'{syou}より{dai}のほうが小さいよ')
+		if syou > dait:
+			await message.channel.send(f'{syou}より{dai}のほうが小さいよ')
 			await message.channel.send(f'/dice 小さい数字 大きい数字 の順番で指定してね')
 			return
 		elif syou == dai:
-    			await message.channel.send(f'{syou}')
+			await message.channel.send(f'{syou}')
 			return
 		else:
-    			await message.channel.send(f'ぽん！**{np.random.randint(syou,dai))}**')
+			await message.channel.send(f'ぽん！**{np.random.randint(syou,dai))}**')
 			return
 		
 	elif message.content == "('o')ｷｬｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww":
