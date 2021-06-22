@@ -59,6 +59,9 @@ async def on_message(message):
 	elif message.content == "juruli":
 		await message.channel.send(f"そのキャラはキャラデリしました")
 		
+	elif message.content == "たまよ！":
+		await message.channel.send(f"パンティーテックス！")
+		
 	elif message.content == "!おみくじ":
 		# Embedを使ったメッセージ送信 と ランダムで要素を選択
 		embed = discord.Embed(title="おみくじ", description=f"{message.author.mention}さんの今日の運勢は！",color=0x2ECC69)
