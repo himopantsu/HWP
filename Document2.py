@@ -20,6 +20,7 @@ from PIL import Image
 bot_token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()  # 接続に使用するオブジェクト
 omikuji_array = np.array(["大凶","大凶","凶","凶","末吉","末吉","小吉","小吉","小吉","吉","吉","吉","中吉","中吉","大吉","大吉"])
+star_array = np.array(["☆☆☆☆☆","★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"])
 
 @client.event
 async def on_ready():
@@ -89,19 +90,19 @@ async def on_message(message):
 		today = str(datetime.date.today().year)+str(datetime.date.today().month)+str(datetime.date.today().day)
 		id = int(message.author.id*int(today))
 		np.random.seed(id%((2**32)-1))
-		kinnun = np.random.randint(0,5) 
+		kinnun = np.random.randint(0,6) 
 		np.random.seed((id**2)%((2**32)-1))
-		sigoto = np.random.randint(0,5)
+		sigoto = np.random.randint(0,6)
 		np.random.seed((id**3)%((2**32)-1))
-		rennai = np.random.randint(0,5)
+		rennai = np.random.randint(0,6)
 		goukei = kinnun + sigoto + rennai
 		
 		embed = discord.Embed(title="おみくじ", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
 		embed.set_thumbnail(url=message.author.avatar_url)
 		embed.add_field(name="総合運",value=omikuji_array[goukei],inline=False)
-		embed.add_field(name="恋愛運",value=f"★"*{rennai}+"☆"*{(5-rennai)},inline=False)
-		embed.add_field(name="金運",value=f"★"*{kinnun}+"☆"*{(5-kinnun)},inline=False)
-		embed.add_field(name="仕事運",value=f"★"*{sigoto}+"☆"*{(5-sigoto)},inline=False)
+		embed.add_field(name="恋愛運",value=star_array[rennai],inline=False)
+		embed.add_field(name="金運",value=star_array[kinnun],inline=False)
+		embed.add_field(name="仕事運",value=star_array[sigoto],inline=False)
 		await message.channel.send(embed=embed)	
 		
 	elif message.content == "!ダイス":
