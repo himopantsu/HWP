@@ -99,9 +99,9 @@ async def on_message(message):
 		embed = discord.Embed(title="おみくじ", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
 		embed.set_thumbnail(url=message.author.avatar_url)
 		embed.add_field(name="総合運",value=omikuji_array[goukei],inline=False)
-		embed.add_field(name="恋愛運",value=f"★*{rennai}+☆*{(5-rennai)}",inline=False)
-		embed.add_field(name="金運",value=f"★*{kinnun}+☆*{(5-kinnun)}",inline=False)
-		embed.add_field(name="仕事運",value=f"★*{sigoto}+☆*{(5-sigoto)}",inline=False)
+		embed.add_field(name="恋愛運",value=f"★"*{rennai}+"☆"*{(5-rennai)},inline=False)
+		embed.add_field(name="金運",value=f"★"*{kinnun}+"☆"*{(5-kinnun)},inline=False)
+		embed.add_field(name="仕事運",value=f"★"*{sigoto}+"☆"*{(5-sigoto)},inline=False)
 		await message.channel.send(embed=embed)	
 		
 	elif message.content == "!ダイス":
