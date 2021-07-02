@@ -87,9 +87,9 @@ async def on_message(message):
 		await message.channel.send(embed=embed)
 		
 	elif message.content == "!おみくじ":
-		today = str(datetime.date.today().year)+str(datetime.date.today().month)+str(datetime.date.today().day)
-		id = int(message.author.id*int(today))
-		np.random.seed(id%((2**32)-1))
+		#today = str(datetime.date.today().year)+str(datetime.date.today().month)+str(datetime.date.today().day)
+		#id = int(message.author.id + int(today))
+		#np.random.seed(id%((2**32)-1))
 		kinnun = np.random.randint(0,6) 
 		np.random.seed((id**2)%((2**32)-1))
 		sigoto = np.random.randint(0,6)
