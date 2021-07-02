@@ -91,9 +91,9 @@ async def on_message(message):
 		#id = int(message.author.id + int(today))
 		#np.random.seed(id%((2**32)-1))
 		kinnun = np.random.randint(0,6) 
-		np.random.seed((id**2)%((2**32)-1))
+		#np.random.seed((id**2)%((2**32)-1))
 		sigoto = np.random.randint(0,6)
-		np.random.seed((id**3)%((2**32)-1))
+		#np.random.seed((id**3)%((2**32)-1))
 		rennai = np.random.randint(0,6)
 		goukei = kinnun + sigoto + rennai
 		
