@@ -61,6 +61,12 @@ async def on_message(message):
 	elif message.content == "!えっち":
 		await message.channel.send(f'きゃー！{message.author.mention}さんのえっち！！', file=discord.File("4ba65a1c.jpg"))
 		
+	elif message.content == "!ドラえもん":
+		await message.channel.send(file=discord.File("doraemon.gif"))
+		
+	elif message.content == "!ヒロシ":
+		await message.channel.send(file=discord.File("hiroshi.gif"))
+		
 	elif message.content == "!ハンバーグ":
 		await message.channel.send(f"ハンバアアアアアアアアアアアアアアアアアアアアアアアアアアアグ！！！！！！")
 	
