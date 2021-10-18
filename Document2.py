@@ -74,7 +74,11 @@ async def on_message(message):
 		if team_num > len(name):
 			await message.channel.send(f'チャンネル参加人数よりチーム数のほうが多い為チーム分けできませんでした。')
 			retrun
-			
+		
+		if message.author.voice is None:
+			await message.channel.send("ボイスチャンネルに接続してね")
+			return
+		
 		random_name = random.shuffle(name)
 		if len(name)%team_num != 0:
 			for i in range(len(name)%team_num):
