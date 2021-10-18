@@ -65,6 +65,25 @@ async def on_message(message):
 			await message.channel.send(f'ぽん！**{np.random.randint(syou,dai)}**')
 			return
 		
+	elif message.content.startswith("!team"):
+		bun = message.content
+		team_num = int(bun[bun.find(" ")+1:])
+        	name = [member.name for member in message.author.voice.channel.members]
+		
+		embed = discord.Embed(title="チーム", description=f"{team_num}つのチームに編成！",color=0xFF0000)
+		if team_num > len(name):
+			await message.channel.send(f'チャンネル参加人数よりチーム数のほうが多い為チーム分けできませんでした。')
+			retrun
+			
+		random_name = random.shuffle(name)
+		if len(name)%team_num != 0:
+			for i in range(len(name)%team_num):
+				random_name.add(" ")
+		team_count = int(len(name)/team_num)
+		for i in range(team_num):
+			embed.add_field(name="チーム**{i}**",value=random_name[team_count*i:team_count*i+team_count)],inline=False)
+		await message.channel.send(embed=embed)		
+		
 	elif message.content == "('o')ｷｬｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww":
 		await message.channel.send(f"うるせえぞタピオカ")
 		
