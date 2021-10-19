@@ -82,7 +82,7 @@ async def on_message(message):
 		random_name = random.shuffle(name)
 		if len(name)%team_num != 0:
 			for i in range(len(name)%team_num):
-				random_name.add(" ")
+				random_name.append(" ")
 		team_count = int(len(name)/team_num)
 		for i in range(team_num):
 			embed.add_field(name="チーム**{i}**",value=random_name[team_count*i:team_count*i+team_count],inline=False)
