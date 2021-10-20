@@ -69,9 +69,10 @@ async def on_message(message):
 		bun = message.content
 		team_num = int(bun[bun.find(" ")+1:])
         	#name = [member.name for member in message.author.voice.channel.members]
-		name = message.author.voice.channel.members
+		member = [i.name for i in message.author.voice.channel.members]
+		#name = message.author.voice.channel.members
 		embed = discord.Embed(title="チーム", description=f"{team_num}つのチームに編成！",color=0xFF0000)
-		if team_num > len(name):
+		if team_num > len(member):
 			await message.channel.send(f'チャンネル参加人数よりチーム数のほうが多い為チーム分けできませんでした。')
 			retrun
 		
@@ -79,11 +80,11 @@ async def on_message(message):
 			await message.channel.send("ボイスチャンネルに接続してね")
 			return
 		
-		random_name = random.shuffle(name)
-		if len(name)%team_num != 0:
-			for i in range(len(name)%team_num):
+		random_name = random.shuffle(member)
+		if len(member)%team_num != 0:
+			for i in range(len(member)%team_num):
 				random_name.append(" ")
-		team_count = int(len(name)/team_num)
+		team_count = int(len(member)/team_num)
 		for i in range(team_num):
 			embed.add_field(name="チーム**{i}**",value=random_name[team_count*i:team_count*i+team_count],inline=False)
 		await message.channel.send(embed=embed)		
