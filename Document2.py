@@ -85,7 +85,7 @@ async def on_message(message):
 			for i in range(len(member)%team_num):
 				random_name.append(" ")
 		team_count = int(len(member)/team_num)
-		print(member,team_num,team_count)
+		print(member,random_name,team_num,team_count)
 		for i in range(team_num):
 			embed.add_field(name="チーム**{i}**",value=random_name[team_count*i:team_count*i+team_count],inline=False)
 		await message.channel.send(embed=embed)		
