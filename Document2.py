@@ -68,7 +68,6 @@ async def on_message(message):
 	elif message.content.startswith("!team"):
 		bun = message.content
 		team_num = int(bun[bun.find(" ")+1:])
-		print(team_num)
         	#name = [member.name for member in message.author.voice.channel.members]
 		member = [i.name for i in message.author.voice.channel.members]
 		#name = message.author.voice.channel.members
@@ -81,14 +80,13 @@ async def on_message(message):
 			await message.channel.send("ボイスチャンネルに接続してね")
 			return
 		
-		random_name = random.shuffle(member)
+		random.shuffle(member)
 		if len(member)%team_num != 0:
 			for i in range(len(member)%team_num):
-				random_name.append(" ")
+				member.append(" ")
 		team_count = int(len(member)/team_num)
-		print(member,random_name,team_num,team_count)
 		for i in range(team_num):
-			embed.add_field(name="チーム**{i}**",value=random_name[team_count*i:team_count*i+team_count],inline=False)
+			embed.add_field(name="チーム**{i}**",value=member[team_count*i:team_count*i+team_count],inline=False)
 		await message.channel.send(embed=embed)		
 		
 	elif message.content == "('o')ｷｬｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww":
