@@ -68,13 +68,14 @@ async def on_message(message):
 	elif message.content.startswith("!team"):
 		bun = message.content
 		team_num = int(bun[bun.find(" ")+1:])
+		print(team_num)
         	#name = [member.name for member in message.author.voice.channel.members]
 		member = [i.name for i in message.author.voice.channel.members]
 		#name = message.author.voice.channel.members
 		embed = discord.Embed(title="チーム", description=f"{team_num}つのチームに編成！",color=0xFF0000)
 		if team_num > len(member):
 			await message.channel.send(f'チャンネル参加人数よりチーム数のほうが多い為チーム分けできませんでした。')
-			retrun
+			return
 		
 		if message.author.voice is None:
 			await message.channel.send("ボイスチャンネルに接続してね")
