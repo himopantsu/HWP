@@ -66,6 +66,10 @@ async def on_message(message):
 			return
 		
 	elif message.content.startswith("!team"):
+		if message.author.voice is None:
+			await message.channel.send("ボイスチャンネルに接続してね")
+			return
+
 		bun = message.content
 		team_num = int(bun[bun.find(" ")+1:])
         	#name = [member.name for member in message.author.voice.channel.members]
@@ -75,9 +79,6 @@ async def on_message(message):
 		
 		print(team_num,len(member))
 		print(member)
-		if message.author.voice is None:
-			await message.channel.send("ボイスチャンネルに接続してね")
-			return
 		
 		if team_num > len(member):
 			await message.channel.send(f'チャンネル参加人数よりチーム数のほうが多い為チーム分けできませんでした。')
