@@ -86,7 +86,7 @@ async def on_message(message):
 				member.append(" ")
 		team_count = int(len(member)/team_num)
 		for i in range(team_num):
-			embed.add_field(name="チーム**{i}**",value=member[team_count*i:team_count*i+team_count],inline=False)
+			embed.add_field(name=f"チーム**{i}**",value=member[team_count*i:team_count*i+team_count],inline=False)
 		await message.channel.send(embed=embed)		
 		
 	elif message.content == "('o')ｷｬｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww":
