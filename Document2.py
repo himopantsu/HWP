@@ -72,9 +72,7 @@ async def on_message(message):
 
 		bun = message.content
 		team_num = int(bun[bun.find(" ")+1:])
-        	#name = [member.name for member in message.author.voice.channel.members]
 		member = [i.name for i in message.author.voice.channel.members]
-		#name = message.author.voice.channel.members
 		embed = discord.Embed(title="チーム", description=f"{team_num}つのチームに編成！",color=0xFF0000)
 		
 		print(team_num,len(member))
@@ -86,7 +84,8 @@ async def on_message(message):
 		
 		random.shuffle(member)
 		if len(member)%team_num != 0:
-			for i in range(len(member)%team_num):
+			ans = team_num - (len(member)%team_num)
+			for i in range(ans):
 				member.append(" ")
 		team_count = int(len(member)/team_num)
 		for i in range(team_num):
