@@ -73,12 +73,14 @@ async def on_message(message):
 		#name = message.author.voice.channel.members
 		embed = discord.Embed(title="チーム", description=f"{team_num}つのチームに編成！",color=0xFF0000)
 		
-		if team_num > len(member):
-			await message.channel.send(f'チャンネル参加人数よりチーム数のほうが多い為チーム分けできませんでした。')
-			return
-		
+		print(team_num,len(member))
+		print(member)
 		if message.author.voice is None:
 			await message.channel.send("ボイスチャンネルに接続してね")
+			return
+		
+		if team_num > len(member):
+			await message.channel.send(f'チャンネル参加人数よりチーム数のほうが多い為チーム分けできませんでした。')
 			return
 		
 		random.shuffle(member)
