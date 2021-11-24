@@ -30,20 +30,7 @@ async def on_ready():
 	print(client.user.id)  # ボットのID
 	print(discord.__version__)  # discord.pyのバージョン
 	print('------')
-	
-@client.event
-async def on_member_join(member):
-	CHANNEL_ID = 812990552337416202
-	setumei = 805719709177610280
-	jikosyoukai = 773414819784949762
-	role = 861808873361637377
-	channel = client.get_channel(CHANNEL_ID)
-	await channel.send(f"{member.mention} さんこんにちは野原ひろしです")
-	await channel.send(f"まずは<#{setumei}>の確認をお願いします。長いので一番上の重要事項と招待制度だけ確認していただければ問題ないと思います。")
-	await channel.send(f"次に<#{jikosyoukai}>の記入をお願いします")
-	await channel.send(f"また、<#{role}>のロールの中にプレイしているゲームタイトルがあればスタンプを付けてください。ロールが付与されます。")
-	await channel.send(f"これからよろしくお願いします!")
-	
+
 @client.event
 async def on_message(message):
 	"""メッセージを処理"""
