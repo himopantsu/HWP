@@ -109,6 +109,9 @@ async def on_message(message):
 	elif message.content == "juruli":
 		await message.channel.send(f"そのキャラはキャラデリしました")
 		
+	elif message.content == "!いい加減寝ろ":
+		await message.channel.send(f"はよ寝ろやゴミ糞カメムシが")
+		
 	elif message.content == "たまよ！":
 		await message.channel.send(f"パンティーテックス！")
 		
