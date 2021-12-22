@@ -38,12 +38,13 @@ async def on_message(message):
 		return
 	
 	elif message.content == "!参加":
-		await message.author.send(f"{member.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
-		await message.author.send(f"あ、解答するときは前に[!]を付けてくれよな")
-		await message.author.send(f"(例:解答が「てばにゃん」の場合「!てばにゃん」と送信してください。")
-		await message.author.send(f"!は半角ね")
-		await message.author.send(f"ではスタート!")
-		await message.author.send(f"{member.mention.id}")
+		dm = await message.author.create_dm()
+		await dm.send(f"{member.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
+		await dm.send(f"あ、解答するときは前に[!]を付けてくれよな")
+		await dm.send(f"(例:解答が「てばにゃん」の場合「!てばにゃん」と送信してください。")
+		await dm.send(f"!は半角ね")
+		await dm.send(f"ではスタート!")
+		await dm.send(f"{member.mention.id}")
 	
 	elif message.content.startswith("/dice"):
 		bun = message.content
