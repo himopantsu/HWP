@@ -45,7 +45,7 @@ async def on_message(message):
 		    await dm.send(f"(例:解答が「てばにゃん」の場合「!てばにゃん」と送信してください。")
 		    await dm.send(f"!は半角ね")
 		    await dm.send(f"ではスタート!")
-		    await dm.send(file=discord.File("/mondai_list/mondai_001.png"))
+		    await dm.send(file=discord.File("mondai_001.png"))
     
 	elif message.content.startswith("/dice"):
 		bun = message.content
