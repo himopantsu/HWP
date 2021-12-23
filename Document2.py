@@ -40,6 +40,8 @@ async def on_message(message):
 		return
 	
 	elif message.content == "!参加":
+		print(type(message.author.id))
+		print(message.author.id)
 		temp = np.sum(sankasya_df["name"].values == str(message.author.id))
 		if temp == 0:
 		    dm = await message.author.create_dm()
