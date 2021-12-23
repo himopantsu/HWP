@@ -42,10 +42,13 @@ async def on_message(message):
 		dm = await message.author.create_dm()
 		CHANNEL_ID = 923672626168234044
 		channel = client.get_channel(CHANNEL_ID)
-		await channel.send(f"{message.author.mention} さんがゲームを開始しました")
+		#await channel.send(f"{message.author.mention} さんがゲームを開始しました")
+		await client.get_channel(CHANNEL_ID).send(f"{message.author.mention} さんがゲームを開始しました")
+		
+		
 		await dm.send(f"{message.author.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
-		await dm.send(f"あ、解答するときは前に[!]を付けてくれよな")
-		await dm.send(f"(例:解答が「てばにゃん」の場合「!てばにゃん」と送信してください。")
+		await dm.send(f"あ、解答するときは前に[!]を付けてひらがなは全てカタカナにしてくれよな")
+		await dm.send(f"(例:解答が「てばにゃん」の場合「!テバニャン」と送信してください。")
 		await dm.send(f"!は半角ね")
 		await dm.send(f"ではスタート!第1問！")
 		await dm.send(file=discord.File("mondai_001.png"))
