@@ -157,7 +157,7 @@ async def on_message(message):
 		dm = await message.author.create_dm()
 		await dm.send(f"正解！次はこれ!第22問!")
 		await dm.send(file=discord.File("mondai_022.png"))
-		await dm.send(file=discord.File("RPReplay_Final1640001801.mov"))
+		await dm.send(file=discord.File("time.gif"))
 		
 	elif message.content == "!時間":
 		dm = await message.author.create_dm()
