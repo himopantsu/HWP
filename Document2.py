@@ -21,6 +21,7 @@ bot_token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()  # 接続に使用するオブジェクト
 omikuji_array = np.array(["大凶","大凶","凶","凶","末吉","末吉","小吉","小吉","小吉","吉","吉","吉","中吉","中吉","大吉","大吉"])
 star_array = np.array(["☆☆☆☆☆","★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"])
+sankasya_list = pd.read_csv("member_list.csv")
 
 @client.event
 async def on_ready():
