@@ -40,7 +40,8 @@ async def on_message(message):
 		return
 	
 	elif message.content == "!参加":
-		if (np.sum(sankasya_df["name"].values == str(message.author.id)) == 0:
+		temp = np.sum(sankasya_df["name"].values == str(message.author.id)
+		if temp == 0:
 		    dm = await message.author.create_dm()
 		    await dm.send(f"{message.author.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
 		    await dm.send(f"あ、解答するときは前に[!]を付けてくれよな")
@@ -52,7 +53,7 @@ async def on_message(message):
 		    sankasya_df = sankasya_df.append(df,ignore_index=True)
 		    sankasya_df.to_csv("member_list.csv")
 		    
-		elif np.sum(sankasya_df["name"].values == str(message.author.id) == 1:
+		elif temp == 1:
 		    dm = await message.author.create_dm()
 		    await dm.send(f"既にゲームを始めているよ")
 			    
