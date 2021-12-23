@@ -40,20 +40,21 @@ async def on_message(message):
 		return
 	
 	elif message.content == "!参加":
-		if np.sum(sankasya_df["name"].values == str(message.author.id) == 0:
-			dm = await message.author.create_dm()
-			await dm.send(f"{message.author.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
-			await dm.send(f"あ、解答するときは前に[!]を付けてくれよな")
-			await dm.send(f"(例:解答が「てばにゃん」の場合「!てばにゃん」と送信してください。")
-			await dm.send(f"!は半角ね")
-			await dm.send(f"ではスタート!")
-			await dm.send(file=discord.File("/mondai_list/mondai_001.png"))
-			df = pd.DataFrame([[str(message.author.id),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],columns=sankasya_df.columns)
-			sankasya_df = sankasya_df.append(df,ignore_index=True)
-			sankasya_df.to_csv("member_list.csv")
+		if (np.sum(sankasya_df["name"].values == str(message.author.id)) == 0:
+		    dm = await message.author.create_dm()
+		    await dm.send(f"{message.author.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
+		    await dm.send(f"あ、解答するときは前に[!]を付けてくれよな")
+		    await dm.send(f"(例:解答が「てばにゃん」の場合「!てばにゃん」と送信してください。")
+		    await dm.send(f"!は半角ね")
+		    await dm.send(f"ではスタート!")
+		    await dm.send(file=discord.File("/mondai_list/mondai_001.png"))
+		    df = pd.DataFrame([[str(message.author.id),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],columns=sankasya_df.columns)
+		    sankasya_df = sankasya_df.append(df,ignore_index=True)
+		    sankasya_df.to_csv("member_list.csv")
+		    
 		elif np.sum(sankasya_df["name"].values == str(message.author.id) == 1:
-			dm = await message.author.create_dm()
-			await dm.send(f"既にゲームを始めているよ")
+		    dm = await message.author.create_dm()
+		    await dm.send(f"既にゲームを始めているよ")
 			    
 			    
 	elif message.content.startswith("/dice"):
