@@ -21,7 +21,6 @@ bot_token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()  # 接続に使用するオブジェクト
 omikuji_array = np.array(["大凶","大凶","凶","凶","末吉","末吉","小吉","小吉","小吉","吉","吉","吉","中吉","中吉","大吉","大吉"])
 star_array = np.array(["☆☆☆☆☆","★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"])
-sankasya_df = pd.read_csv("member_list.csv")
 
 
 @client.event
@@ -40,10 +39,6 @@ async def on_message(message):
 		return
 	
 	elif message.content == "!参加":
-		print(type(message.author.id))
-		print(message.author.id)
-		temp = np.sum(sankasya_df["name"].values == str(message.author.id))
-		if temp == 0:
 		    dm = await message.author.create_dm()
 		    await dm.send(f"{message.author.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
 		    await dm.send(f"あ、解答するときは前に[!]を付けてくれよな")
@@ -51,15 +46,7 @@ async def on_message(message):
 		    await dm.send(f"!は半角ね")
 		    await dm.send(f"ではスタート!")
 		    await dm.send(file=discord.File("/mondai_list/mondai_001.png"))
-		    df = pd.DataFrame([[str(message.author.id),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],columns=sankasya_df.columns)
-		    sankasya_df = sankasya_df.append(df,ignore_index=True)
-		    sankasya_df.to_csv("member_list.csv")
-		    
-		elif temp == 1:
-		    dm = await message.author.create_dm()
-		    await dm.send(f"既にゲームを始めているよ")
-			    
-			    
+    
 	elif message.content.startswith("/dice"):
 		bun = message.content
 		syou = int(bun[bun.find(" ")+1:bun.rfind(" ")])
