@@ -48,7 +48,7 @@ async def on_message(message):
 		
 		await dm.send(f"{message.author.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
 		await dm.send(f"あ、解答するときは前に[!]を付けてひらがなは全てカタカナにしてくれよな")
-		await dm.send(f"(例:解答が「てばにゃん」の場合「!テバニャン」と送信してください。")
+		await dm.send(f"(例:解答が「かき氷機」の場合「!カキ氷機」と送信してください。")
 		await dm.send(f"!は半角ね")
 		await dm.send(f"ではスタート!第1問！")
 		await dm.send(file=discord.File("mondai_001.png"))
