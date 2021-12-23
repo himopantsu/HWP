@@ -40,6 +40,9 @@ async def on_message(message):
 	
 	elif message.content == "!参加":
 		dm = await message.author.create_dm()
+		CHANNEL_ID = 923672626168234044
+		channel = client.get_channel(CHANNEL_ID)
+		await channel.send(f"{message.author.mention} さんがゲームを開始しました")
 		await dm.send(f"{message.author.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
 		await dm.send(f"あ、解答するときは前に[!]を付けてくれよな")
 		await dm.send(f"(例:解答が「てばにゃん」の場合「!てばにゃん」と送信してください。")
