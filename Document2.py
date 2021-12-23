@@ -40,7 +40,7 @@ async def on_message(message):
 		return
 	
 	elif message.content == "!参加":
-		temp = np.sum(sankasya_df["name"].values == str(message.author.id)
+		temp = np.sum(sankasya_df["name"].values == str(message.author.id))
 		if temp == 0:
 		    dm = await message.author.create_dm()
 		    await dm.send(f"{message.author.mention}さんゲーム参加ありがとう！俺は野原ひろし。これからゲームの説明をするね\nこれから俺が問題を出して行くから答えがわかったら回答してくれ\n")
