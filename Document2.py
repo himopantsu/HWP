@@ -351,6 +351,9 @@ async def on_message(message):
 	elif message.content == "!ジュース":
 		dm = await message.author.create_dm()
 		await dm.send(f"正解！次はこれ!第60問!")
+		CHANNEL_ID = 923672626168234044
+		channel = client.get_channel(CHANNEL_ID)
+		await channel.send(f"{message.author.mention} さんが60問目をクリアしました")
 		await dm.send(file=discord.File("mondai_060.png"))
 		
 	elif message.content == "!タヌキ":
@@ -400,6 +403,9 @@ async def on_message(message):
 		
 	elif message.content == "!ツリボリ":
 		dm = await message.author.create_dm()
+		CHANNEL_ID = 923672626168234044
+		channel = client.get_channel(CHANNEL_ID)
+		await channel.send(f"{message.author.mention} さんが70問目をクリアしました")
 		await dm.send(f"正解！次はこれ!第70問!")
 		await dm.send(file=discord.File("mondai_070.png"))
 		
@@ -450,6 +456,9 @@ async def on_message(message):
 		
 	elif message.content == "!ダシマキタマゴ":
 		dm = await message.author.create_dm()
+		CHANNEL_ID = 923672626168234044
+		channel = client.get_channel(CHANNEL_ID)
+		await channel.send(f"{message.author.mention} さんが80問目をクリアしました")
 		await dm.send(f"正解！次はこれ!第80問!")
 		await dm.send(file=discord.File("mondai_080.png"))
 		
@@ -500,6 +509,9 @@ async def on_message(message):
 		
 	elif message.content == "!ラクダ":
 		dm = await message.author.create_dm()
+		CHANNEL_ID = 923672626168234044
+		channel = client.get_channel(CHANNEL_ID)
+		await channel.send(f"{message.author.mention} さんが90問目をクリアしました")
 		await dm.send(f"正解！次はこれ!第90問!")
 		await dm.send(file=discord.File("mondai_090.png"))
 		
@@ -550,6 +562,9 @@ async def on_message(message):
 		
 	elif message.content == "!メス":
 		dm = await message.author.create_dm()
+		CHANNEL_ID = 923672626168234044
+		channel = client.get_channel(CHANNEL_ID)
+		await channel.send(f"{message.author.mention} さんが100問目をクリアしました")
 		await dm.send(f"正解！次はこれ!第100問!")
 		await dm.send(file=discord.File("mondai_100.png"))
 		
@@ -585,6 +600,9 @@ async def on_message(message):
 		
 	elif message.content == "!マンモス":
 		dm = await message.author.create_dm()
+		CHANNEL_ID = 923672626168234044
+		channel = client.get_channel(CHANNEL_ID)
+		await channel.send(f"{message.author.mention} さんが107問目をクリアしました")
 		await dm.send(f"正解！次はこれ!第107問!")
 		await dm.send(file=discord.File("mondai_107.png"))
 		
@@ -597,6 +615,9 @@ async def on_message(message):
 		
 	elif message.content == "!!寅":
 		dm = await message.author.create_dm()
+		CHANNEL_ID = 923672626168234044
+		channel = client.get_channel(CHANNEL_ID)
+		await channel.send(f"{message.author.mention} さんが108問目をクリアしました!全クリ！")
 		await dm.send(f"謎解き全問正解！全クリおめでとう！！！")
 		
 	elif message.content.startswith("/dice"):
