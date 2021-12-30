@@ -373,7 +373,7 @@ async def on_message(message):
 		await dm.send(f"正解！次はこれ!第64問!")
 		await dm.send(file=discord.File("mondai_064.png"))
 		
-	elif message.content == "!人狼":
+	elif message.content == "!スイソウ":
 		dm = await message.author.create_dm()
 		await dm.send(f"正解！次はこれ!第65問!")
 		await dm.send(file=discord.File("mondai_065.png"))
@@ -383,7 +383,7 @@ async def on_message(message):
 		await dm.send(f"正解！次はこれ!第66問!")
 		await dm.send(file=discord.File("mondai_066.png"))
 		
-	elif message.content == "!プロジェクト":
+	elif message.content == "!イノシシ":
 		dm = await message.author.create_dm()
 		await dm.send(f"正解！次はこれ!第67問!")
 		await dm.send(file=discord.File("mondai_067.png"))
@@ -590,14 +590,15 @@ async def on_message(message):
 		
 	elif message.content == "!ルーレット":
 		dm = await message.author.create_dm()
-		await dm.send(f"正解！次はこれ!第108問!")
+		await dm.send(f"正解！これが最後の問題だ!第108問!")
+		await dm.send(f"最後の問題は!![解答]を入力してくれ!")
+		await dm.send(f"例:解答がかき氷の場合　→　!!カキ氷")
 		await dm.send(file=discord.File("mondai_108.png"))
 		
-	elif message.content == "!キスウヨメ":
+	elif message.content == "!!寅":
 		dm = await message.author.create_dm()
-		await dm.send(f"正解！これが最後の問題だ!")
+		await dm.send(f"謎解き全問正解！全クリおめでとう！！！")
 		
-    
 	elif message.content.startswith("/dice"):
 		bun = message.content
 		syou = int(bun[bun.find(" ")+1:bun.rfind(" ")])
