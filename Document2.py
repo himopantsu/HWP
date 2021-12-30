@@ -321,12 +321,11 @@ async def on_message(message):
 		
 	elif message.content == "!鉄":
 		dm = await message.author.create_dm()
-		await dm.send(f"正解！第一弾はここまで！全問正解おめでとう！")
 		CHANNEL_ID = 923672626168234044
 		channel = client.get_channel(CHANNEL_ID)
 		await channel.send(f"{message.author.mention} さんが54問目をクリアしました")
-		#await dm.send(f"正解！次はこれ!第55問!")
-		#await dm.send(file=discord.File("mondai_055.png"))
+		await dm.send(f"正解！次はこれ!第55問!")
+		await dm.send(file=discord.File("mondai_055.png"))
 		
 	elif message.content == "!ノートパソコン":
 		dm = await message.author.create_dm()
