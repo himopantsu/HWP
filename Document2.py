@@ -639,12 +639,13 @@ async def on_message(message):
 			await message.channel.send("ボイスチャンネルに接続してね")
 			return
 		
+		bun = message.content
+		team_num = int(bun[bun.find(" ")+1:])
+		
 		if team_num > len(member):
 			await message.channel.send(f'チャンネル参加人数より飲む人のほうが多いよおお。')
 			return
 		
-		bun = message.content
-		team_num = int(bun[bun.find(" ")+1:])
 		member = [i.name for i in message.author.voice.channel.members]
 		embed = discord.Embed(title="チーム", description=f"飲む人！",color=0xFF0000)
 		random.shuffle(member)
