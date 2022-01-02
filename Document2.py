@@ -647,10 +647,10 @@ async def on_message(message):
 			await message.channel.send(f'チャンネル参加人数より飲む人のほうが多いよおお。')
 			return
 		
-		embed = discord.Embed(title="チーム", description=f"飲む人！",color=0xFF0000)
+		embed = discord.Embed(title="飲む人", description=f"飲む人！",color=0xFF0000)
 		random.shuffle(member)
 		for i in range(team_num):
-			embed.add_field(name=f"飲む人**{i}**",value=member[i],inline=False)
+			embed.add_field(name=f"飲む人**{i+1}**",value=member[i],inline=False)
 		await message.channel.send(embed=embed)	
 	
 	elif message.content.startswith("!team"):
