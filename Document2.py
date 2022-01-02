@@ -647,6 +647,7 @@ async def on_message(message):
 		
 		print(team_num,len(member))
 		print(member)
+		print(message.author.voice.channel.members)
 		
 		if team_num > len(member):
 			await message.channel.send(f'チャンネル参加人数よりチーム数のほうが多い為チーム分けできませんでした。')
