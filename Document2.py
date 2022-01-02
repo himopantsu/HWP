@@ -697,6 +697,9 @@ async def on_message(message):
 	elif message.content == "たまよ！":
 		await message.channel.send(f"パンティーテックス！")
 		
+	elif message.content == "!Oさんかっこいい":
+		await message.channel.send(f"https://twitter.com/taric_OTP/status/1476856907000614915")
+		
 	elif message.content == "!ごみくじ":
 		# Embedを使ったメッセージ送信 と ランダムで要素を選択
 		embed = discord.Embed(title="おみくじ", description=f"{message.author.mention}さんの今日の運勢は！",color=0x2ECC69)
