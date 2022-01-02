@@ -830,6 +830,14 @@ async def on_message(message):
 		message.guild.voice_client.play(discord.FFmpegPCMAudio("ramasumu.mp3"))
 		await message.channel.send("終わったら「!終わった」ってしてね")
 		
+	elif message.content == "!ねむる":
+		if message.author.voice is None:
+			await message.channel.send("ボイスチャンネルに接続してね")
+			return
+		await message.author.voice.channel.connect()
+		message.guild.voice_client.play(discord.FFmpegPCMAudio("nemuru.mp3"))
+		await message.channel.send("終わったら「!終わった」ってしてね")
+		
 	elif message.content == "!終わった":
 		await message.channel.send("じょあの")
 		await message.guild.voice_client.disconnect()
