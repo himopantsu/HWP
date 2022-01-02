@@ -640,7 +640,7 @@ async def on_message(message):
 			return
 
 		bun = message.content
-		intents=discord.Intents.all() 
+		#intents=discord.Intents.all() 
 		team_num = int(bun[bun.find(" ")+1:])
 		member = [i.name for i in message.author.voice.channel.members]
 		embed = discord.Embed(title="チーム", description=f"{team_num}つのチームに編成！",color=0xFF0000)
