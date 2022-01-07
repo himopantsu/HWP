@@ -718,6 +718,9 @@ async def on_message(message):
 	elif message.content == "たまよ！":
 		await message.channel.send(f"パンティーテックス！")
 		
+	elif message.content == "!らますむ":
+		await message.channel.send(f"削除しました")
+		
 	elif message.content == "!Oさんかっこいい":
 		await message.channel.send(f"https://twitter.com/taric_OTP/status/1476856907000614915")
 		
@@ -825,7 +828,7 @@ async def on_message(message):
 		message.guild.voice_client.play(discord.FFmpegPCMAudio("tamayo.mp3"))
 		await message.channel.send("終わったら「!終わった」ってしてね")
 		
-	elif message.content == "!らますむ":
+	elif message.content == "!らますむXXX":
 		if message.author.voice is None:
 			await message.channel.send("ボイスチャンネルに接続してね")
 			return
