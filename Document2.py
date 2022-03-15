@@ -21,6 +21,7 @@ bot_token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()  # 接続に使用するオブジェクト
 omikuji_array = np.array(["大凶","大凶","凶","凶","末吉","末吉","小吉","小吉","小吉","吉","吉","吉","中吉","中吉","大吉","大吉"])
 star_array = np.array(["☆☆☆☆☆","★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"])
+color = np.array(["赤","青","黄","緑","黒","ピンク","紫","水色","黄緑","茶","白","松崎しげる色","ショッキングピンク","パステルカラー","無地","浅葱","赤金","白金","金","銀","銅","紺","群青","エメラルドグリーン"])
 
 
 @client.event
@@ -163,13 +164,14 @@ async def on_message(message):
 		#np.random.seed((id**3)%((2**32)-1))
 		rennai = np.random.randint(0,6)
 		goukei = kinnun + sigoto + rennai
-		
+		color_num = np.random.randint(0,len(color))
 		embed = discord.Embed(title="おみくじ", description=f"{message.author.mention}さんの今日の運勢は！",color=0x00FF00)
 		embed.set_thumbnail(url=message.author.avatar_url)
 		embed.add_field(name="総合運",value=omikuji_array[goukei],inline=False)
 		embed.add_field(name="恋愛運",value=star_array[rennai],inline=False)
 		embed.add_field(name="金運",value=star_array[kinnun],inline=False)
 		embed.add_field(name="仕事運",value=star_array[sigoto],inline=False)
+		embed.add_field(name="ラッキーカラー",value=color[color_num],inline=False)
 		await message.channel.send(embed=embed)	
 		
 	elif message.content == "!ダイス":
