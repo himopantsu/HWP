@@ -103,7 +103,7 @@ color = np.array(["藍色 (あいいろ)","藍鼠 (あいねず)","青 (あお)"
 		  "レモンイエロー (lemon yellow)","ローアンバー (raw umber)","ローシェンナ (raw sienna)","ローズ (rose)","ローズグレイ (rose grey)",
 		  "ローズピンク (rose-pink)","ローズマダー (rose madder)","ローズレッド (rose red)","ロイヤルパープル (royal purple)","ロイヤルブルー (royal blue)",
 		  "ワインレッド (wine red)","ヴィオレ (violet)","ヴェール (vert)","オランジュ (orange)","グリ (gris)","ジョーヌ (jaune)","ノワール (noir)",
-		  "ブラン (blanc)","ブラン (brun)","ブルー (bleu)","ルージュ (rouge)","ローズ (rose)","ローズ ソーモン (rose saumon)","ローズ テ (rose the)"])
+		  "ブラン (blanc)","ブラン (brun)","ブルー (bleu)","ルージュ (rouge)","ローズ (rose)","ローズ ソーモン (rose saumon)","ローズ テ (rose the)","松崎しげる色(Shigeru Matsuzaki)"])
 
 
 @client.event
